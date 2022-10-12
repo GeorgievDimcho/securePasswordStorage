@@ -1,0 +1,28 @@
+Slide 1 - Titel
+B.8. Sichere Passwortverwaltung
+Wissensbasierte Authentifikationsmechanismen müssen die Credentials (Username:Passwort) der Subjekte (Benutzer) persistent abspeichern. Da niemals ausgeschlossen werden kann, dass ein Angreifer Zugriff zu diesem Speicher erlangt, müssen programmtechnisch bzw. logisch Vorkehrungen getroffen werden. Es ist daher eine Applikation zu entwickeln, die Subjekte über Passwörter authentifiziert und die Credentials sicher persistiert. In diesem Zusammenhang ist in der Präsentation weiters auf Passwortentropie, Hashcracking (resp. Rainbow Tables) sowie PBKDF2 einzugehen.
+
+private Information wird benutzt, um die Identität zu bestätigen 
+---
+Slide3 - Hash Algoruthmen
+
+ Pfefer geht noch einen Schritt weiter und ordnet dem Kennwort einen zweiten Zufallswert zu, der jedoch weder mit dem Salz noch mit dem Kennwort gespeichert wird.
+
+Man könnte sich vorstellen, dass ein Pfeffer nur ein zusätzliches Salz ist. Aber der Pepper ist nicht nur ein geheimer Schlüssel, der nur dann auftaucht, wenn sich ein Kunde bei einer Website anmeldet, sondern er muss auch an einem separaten Ort gespeichert werden, damit er tatsächlich geheim bleibt.
+
+Man kann vielleicht den Hash erraten und sogar an das Salz herankommen, aber wenn der Pfeffer physisch an einem anderen Ort liegt, müsste ein Hacker Zugang zu beiden Datenbanken haben, um wirklich voranzukommen.
+
+---
+Slide 5 - Hash-Table vs Rainbow-Table
+
+Sowohl Hash-Tabellen als auch Rainbow-Tabellen werden zum Speichern der Ergebnisse eines Vorberechnungsangriffs verwendet.
+Das Nachschlagen in einer Rainbow-Tabelle ist langsamer*, benötigt aber weniger Platz, um die vorberechneten Ergebnisse einer bestimmten Anzahl von Kennwörtern zu speichern.
+Das Nachschlagen in einer Hash-Tabelle ist schneller*, erfordert aber mehr Speicherplatz für die vorberechneten Ergebnisse einer bestimmten Anzahl von Kennwörtern.
+Sowohl Hash-Tabellen als auch Rainbow-Tabellen werden durch die Verwendung eines Pseudo-Zufallssalzes pro Datensatz vollständig überwunden.
+
+---
+Slide 6 - PBKDF2
+ Das bedeutet, dass Angreifer im Laufe der Jahre immer mehr potenzielle Passwörter "ausprobieren" können, während die Benutzer sich nicht an immer komplexere Passwörter erinnern können. Um diesem Trend entgegenzuwirken, können wir das Hashing von Natur aus langsam machen, indem wir die Hash-Funktion so definieren, dass sie eine Menge interner Iterationen verwendet
+ Erhöhung der Kosten für das Erraten von Passwörtern, die mit den Hashes übereinstimmen, durch Brute Force
+ 
+
